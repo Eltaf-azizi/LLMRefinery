@@ -54,3 +54,24 @@ for directory in directories:
     files = sorted([f for f in os.listdir(directory)])
     #files = files[:10]
     print(files)
+
+
+    
+    for file in tqdm(files):
+        with open(f"{directory}/{file}", "r") as f:
+            try:
+                tmpdf = pd.DataFrame([json.loads(line) for line in f])
+                # lowercase the subreddit column
+                tmpdf["subreddit"] = tmpdf["subreddit"].str.lower()
+                # filter out the rows that do not have the target subreddit
+                tmpdf = tmpdf[tmpdf["subreddit"].isin(target_subreddits)]
+                #print(tmpdf.head())
+                # append the tmpdf columns: "subreddit", "author", "created_utc", "parent_id", "id", "body" to the main dataframe
+                #df = df.append(tmpdf[["subreddit", "author", "created_utc", "parent_id", "id", "body"]])
+                # use concat instead of append
+                df = pd.concat([df, tmpdf[["author", "subreddit", "created_utc", "parent_id", "id", "body", "score"]]])
+            except Exception as e:
+                print(str(e))
+
+
+
