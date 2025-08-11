@@ -41,3 +41,16 @@ def decompress_file(file_path):
 compressed_files = [os.path.join(compressed_dir, f) for f in os.listdir(compressed_dir) if os.path.isfile(os.path.join(compressed_dir, f))]
 
 
+# Use a ProcessPoolExecutor to run the decompression process in parallel
+
+with ProcessPoolExecutor() as executor:
+    # Use the map function to apply the decompress_file function to each compressed file
+    executor.map(decompress_file, compressed_files)
+
+
+end = time.time()
+
+
+print(f"time taken: {(end-START)/60} minutes")
+print(f"total files decompressed: {total_files_decompressed}")
+
