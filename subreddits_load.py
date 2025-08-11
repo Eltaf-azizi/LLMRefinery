@@ -5,11 +5,13 @@ from tqdm import tqdm
 import time
 import pickle
 
+
 # Set the directory
 
 directories = ["2016_j", "2017_j", "2018_j"]
 
 target_subreddits = ["wallstreetbets"]
+
 
 
 '''target_subreddits = ["wallstreetbets",
@@ -35,3 +37,20 @@ target_subreddits = ["wallstreetbets"]
                      "nonononoyes",
                      "yesyesyesno",
                      "maliciouscompliance",]'''
+
+
+
+
+
+for directory in directories:
+    START = time.time()
+
+
+    # Create an empty dataframe
+    df = pd.DataFrame(columns=["author", "subreddit", "created_utc", "parent_id", "id", "body", "score"])
+
+
+    # Iterate over the files in ascending order by filename, set number of files to process
+    files = sorted([f for f in os.listdir(directory)])
+    #files = files[:10]
+    print(files)
