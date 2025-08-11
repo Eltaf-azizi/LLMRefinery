@@ -75,3 +75,19 @@ for directory in directories:
 
 
 
+    print(df.head())
+    print('length:', len(df))
+    df = df.sort_values(by="created_utc")
+    print(df.head())
+
+
+    #save the dataframe to a csv as directory and target subreddits
+    fname = f"{directory}_wallstreetbets.pkl"
+
+    with open(fname, "wb") as f:
+        pickle.dump(df, f)
+        print(f"Saved to {directory}_{'_'.join(target_subreddits)}.pkl")
+
+
+    print(f"Time taken: {(time.time() - START)/60} minutes")
+    
