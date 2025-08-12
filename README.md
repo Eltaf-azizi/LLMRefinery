@@ -28,5 +28,23 @@ Example (Chat Format):
 ```json
 Copy
 Edit
-{"messages": [{"role
+{"messages": [{"role": "system", "content": "You are a helpful assistant."}, {"role": "user", "content": "What's the capital of France?"}, {"role": "assistant", "content": "Paris"}]}
 ```
+
+## 🛠 How to Use
+### 1️⃣ Install Dependencies
+```bash
+Copy
+Edit
+pip install datasets transformers
+```
+2️⃣ Load Dataset with Hugging Face
+```python
+Copy
+Edit
+from datasets import load_dataset
+
+dataset = load_dataset("path/to/dataset")
+print(dataset["train"][0])
+```
+
