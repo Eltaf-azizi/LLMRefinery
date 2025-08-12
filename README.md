@@ -61,3 +61,12 @@ python run_clm.py \
   --output_dir ./fine-tuned-llm
 ```
 
+## 📏 Quality & Cleaning Process
+ - Removed duplicates.
+
+ - Filtered out low-quality or incomplete entries.
+
+ - Applied [list preprocessing steps, e.g., spell checking, normalization, profanity filter].
+
+ - Ensured balanced representation of [domains/topics].
+
