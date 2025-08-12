@@ -48,3 +48,16 @@ dataset = load_dataset("path/to/dataset")
 print(dataset["train"][0])
 ```
 
+### 3️⃣ Fine-Tune with Hugging Face Transformers
+```bash
+Copy
+Edit
+python run_clm.py \
+  --model_name_or_path gpt2 \
+  --train_file data/train.jsonl \
+  --validation_file data/validation.jsonl \
+  --per_device_train_batch_size 2 \
+  --per_device_eval_batch_size 2 \
+  --output_dir ./fine-tuned-llm
+```
+
