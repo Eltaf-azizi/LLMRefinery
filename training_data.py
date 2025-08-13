@@ -81,5 +81,31 @@ def build_convo_chain_by_id(df, id):
 ids = df['id'].unique()
 
 
+import random
+import colorama
+
+
+# shuffle ids
+random.shuffle(ids)
+
+
+MIN_LEN = 2
+MIN_SCORE = 3
+
+
+BOT_NAME = "Walls1337bot"
+
+
+hm_samples = 1000000
+sample_count = 0
+
+
+samples = []
+
+
+for idx in ids:
+    chain = (build_convo_chain_by_id(df, idx))
+    reply_score = int(chain[-1][-1])
+
 
 
