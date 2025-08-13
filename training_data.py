@@ -59,6 +59,27 @@ def build_convo_chain_by_id(df, id):
     while HAS_PARENT:
         try:
             # get just the author, body, and score. 
-            row = df[df['id'] == id]
+            row = df[df['id'] == id]       
+
+            convo_chain.append(row[['author', 'body', 'score']].values[0].tolist())
+            #print(row['body'].values)
+            if row['parent_id'].isna().values[0]:
+                HAS_PARENT = False
+            else:
+                id = row['parent_id'].values[0]
+                #print(id)
+        except IndexError:
+            #print("ID not found")
+            break
+
+    # reverse the convo_chain:
+    convo_chain = convo_chain[::-1]
+    return convo_chain
+
+
+# get a list of each unique id column
+ids = df['id'].unique()
+
+
 
 
