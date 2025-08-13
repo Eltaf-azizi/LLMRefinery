@@ -77,3 +77,14 @@ python run_clm.py \
  - No hate speech or harmful content.
 
  - Follows [relevant AI ethical guidelines].
+
+
+## 🙌 Contributions
+ - Contributions are welcome!
+
+ - Open an issue for suggestions.
+
+ - Submit a pull request for improvements.
+
+<h3 align="center">Happy Coding!</h3>
+
