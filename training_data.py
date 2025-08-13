@@ -43,3 +43,22 @@ for file in files:
 df['parent_id'] = df['parent_id'].str[3:]
 
 
+# or for the full combined: 
+#df = pd.read_csv('combined_df-with-removeds', index_col=0)
+
+
+print("df head:")
+print(df.head())
+print("df length:", len(df))
+
+
+
+def build_convo_chain_by_id(df, id):
+    HAS_PARENT = True
+    convo_chain = []
+    while HAS_PARENT:
+        try:
+            # get just the author, body, and score. 
+            row = df[df['id'] == id]
+
+
