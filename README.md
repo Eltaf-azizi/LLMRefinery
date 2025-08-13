@@ -70,3 +70,10 @@ python run_clm.py \
 
  - Ensured balanced representation of [domains/topics].
 
+
+## ⚖️ Ethical Considerations
+ - No private or personal identifiable information (PII).
+
+ - No hate speech or harmful content.
+
+ - Follows [relevant AI ethical guidelines].
