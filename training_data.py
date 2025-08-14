@@ -108,4 +108,23 @@ for idx in ids:
     reply_score = int(chain[-1][-1])
 
 
+    if len(chain) >= MIN_LEN and reply_score >= MIN_SCORE:
+        print("ID: ", idx)
+        print("Score: ", reply_score)
+
+
+        final_reply_author = chain[-1][0]
+        author_ids = {final_reply_author: BOT_NAME}
+        start_id = 0
+        in_str = "### BEGIN CONVERSATION ###\n\n"
+
+        for i in chain[:-1]:
+            author = i[0]
+            
+            if author not in author_ids:
+                author_ids[author] = "Speaker_" + str(start_id)
+                start_id += 1
+            in_str += "## "+author_ids[author] + ": ##\n" + i[1] + "\n\n"
+
+
 
