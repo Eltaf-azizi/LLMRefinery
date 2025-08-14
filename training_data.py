@@ -126,5 +126,32 @@ for idx in ids:
                 start_id += 1
             in_str += "## "+author_ids[author] + ": ##\n" + i[1] + "\n\n"
 
+        
+        in_str += "## " + author_ids[final_reply_author] + ": ##\n"
+        out_str = chain[-1][1] + "\n\n### END CONVERSATION ###"
+
+
+        train_string = in_str + out_str
+        
+
+        # if idx not in database, add the idx and train_string
+        c.execute("SELECT * FROM walls1337bot WHERE id=?", (idx,))
+
+        if c.fetchone() is None:
+            c.execute("INSERT INTO walls1337bot (id, train_text, score, length) VALUES (?, ?, ?, ?)", (idx, train_string, reply_score, len(chain)))
+            conn.commit()
+            # print added to database in green:
+            print(colorama.Fore.GREEN + "Added to database" + colorama.Style.RESET_ALL)
+            sample_count += 1
+
+        else:
+            # print already in database in red!
+            print(colorama.Fore.RED + "Already in database" + colorama.Style.RESET_ALL)
+
+
+
+    if sample_count >= hm_samples:
+        break
+
 
 
