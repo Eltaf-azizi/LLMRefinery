@@ -12,6 +12,19 @@ Well-structured formatting for training frameworks like Hugging Face Transformer
 
 Ethical and safe content.
 
+## Project Structure
+    .
+    ├── .giltignore
+    ├── bigquery-decompress.py
+    ├── Fine-Tune.ipynb
+    ├── LICENSE
+    ├── README.md
+    ├── subreddits_load.py
+    ├── testing-fine-tuning.ipynb
+    ├── train.json.py
+    └── training_data.py
+
+
 ## 📄 Data Format
 The dataset is in JSONL (JSON Lines) format, compatible with most LLM fine-tuning frameworks.
 
